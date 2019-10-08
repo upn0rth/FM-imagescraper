@@ -1,4 +1,47 @@
-﻿using HtmlAgilityPack;
+﻿Add-Type -Path "C:\Users\JoMa\Desktop\Classes.cs"
+
+$obj = New-Object Sample
+$obj2 = New-Object Sample
+
+$obj.GetType().GetMethod("MyMethod").MakeGenericMethod([String]).Invoke($obj, "Test Message")
+$obj.GetType().GetMethod("MyMethod").MakeGenericMethod([Double]).Invoke($obj, "Test Message")
+
+$result = $obj2.pop()
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
+using System.Windows.Forms;
+
+public class Sample
+{
+    public static string MyMethod<T>( string anArgument )
+    {
+        return string.Format( "Generic type is {0} with argument {1}", typeof(T), anArgument );
+    }
+	
+	
+	public void pop(){
+		
+		Form testff = new Form();
+		testff.ShowDialog();
+		
+	}
+}
+using HtmlAgilityPack;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.PhantomJS;
